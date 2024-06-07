@@ -1,0 +1,141 @@
+/* invisible checkbox */
+
+#menu_toggle {
+  opacity: 0;
+}
+
+/* styled button */
+
+.menu_btn {
+  display: flex;
+  align-items: center;
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  width: 26px;
+  height: 26px;
+  cursor: pointer;
+  z-index: 1;
+}
+
+/* hamburger css */
+
+.menu_btn > span,
+.menu_btn > span::before,
+.menu_btn > span::after {
+  display: block;
+  position: absolute;
+  width: 100%;
+  height: 2px;
+  background-color: #d3d6db;
+}
+
+.menu_btn > span::before {
+  content: "";
+  top: -8px;
+}
+
+.menu_btn > span::after {
+  content: "";
+  top: 8px;
+}
+
+/* menu container */
+
+.menu_box {
+  display: block;
+  position: fixed;
+  visibility: hidden;
+  top: 0;
+  left: -100%;
+  width: 300px;
+  height: 100%;
+  margin: 0;
+  padding: 80px 0;
+  list-style: none;
+  text-align: center;
+  background-color: #d3d6db;
+  box-shadow: 1px 0px 6px rgba(0, 0, 0, 0.2);
+}
+
+/* menu elements */
+
+.menu_item {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 24px;
+  color: #333;
+  font-family: "Roboto", sans-serif;
+  font-size: 20px;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.menu_item:hover {
+  background-color: #adbcc7;
+}
+
+/* menu open/close logic */
+
+#menu_toggle:checked ~ .menu_btn > span,
+#menu_toggle:checked ~ .menu_btn > span::before,
+#menu_toggle:checked ~ .menu_btn > span::after {
+  background-color: #303841;
+}
+
+#menu_toggle:checked ~ .menu_btn > span {
+  transform: rotate(45deg);
+  transition: 0.5s;
+}
+
+#menu_toggle:checked ~ .menu_btn > span::before {
+  top: 0;
+  transform: rotate(0);
+}
+
+#menu_toggle:checked ~ .menu_btn > span::after {
+  top: 0;
+  transform: rotate(90deg);
+}
+
+#menu_toggle:checked ~ .menu_box {
+  visibility: visible;
+  left: 0;
+}
+
+/* my code starts */
+
+.menu_item::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  right: 33px;
+  transform: translateY(-50%);
+  display: block;
+
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 8px 6px 0;
+  border-color: #718390 transparent transparent transparent;
+
+  pointer-events: none;
+}
+
+.menu_item label {
+  font-size: 1rem;
+  color: #303841;
+}
+
+.menu_item select {
+  font-size: 1rem;
+  padding: 0.3rem 1.8rem 0.3rem 0.5rem;
+  background-color: #d3d6db;
+  border: 1px solid #303841;
+  border-radius: 5px;
+  color: #303841;
+  cursor: pointer;
+  appearance: none;
+}

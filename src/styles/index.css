@@ -1,0 +1,19 @@
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Verdana;
+  background-color: #303841;
+}
+
+.center {
+  text-align: center;
+}
+
+.white {
+  color: white;
+}
